@@ -1,0 +1,10 @@
+{
+    "laudo_id": "LAUDO_CARDIO_2026_001",
+    "autor": "dr_joao",
+    "timestamp": "2026-11-18T18:13:14.543731",
+    "algoritmo": "AES-256-GCM + HMAC-SHA256",
+    "nonce_hex": "dbd42db0d35c01fd7c4e3871",
+    "ciphertext_hex": "9ab1d98e6e915b880ec5ff3a272bd660383880535ebfbb42b33b575675d55194ce0bd05baac012f945c269a53460d3914345a858c8736223b76f64ece3fb3d4b76d1c6780a2a69264f3162e62ec355147bfcf355c1628274e466e8f7fc347c3f5bcfd49d5ec8e083b744f1de34f245c8f0d956ceacd25653b92b84800c124b41a32ddda3e3c765b11d33b48c4cd6de5ac7391f0c025eaf3ced832100019a7261d9ef0213e57fa14f3187",
+    "hmac_sha256": "7bcfebc1cf04689235e3016a1d850562b9a550689d46328ef12ed7dccf490147",
+    "sha256_plaintext": "edde7f0d28660e5a11cc02f4bacae962c4fe0ba3234bd2305a5b6d96b7cf9daa"
+}

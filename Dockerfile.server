@@ -1,0 +1,25 @@
+FROM python:3.11-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    openssl \
+    iptables \
+    tcpdump \
+    iproute2 \
+    net-tools \
+    procps \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY server.py /app/
+COPY entrypoint_server.sh /app/
+RUN chmod +x /app/entrypoint_server.sh
+
+RUN mkdir -p /app/certs /app/vault_storage /var/log/medvault /app/pcap
+
+EXPOSE 8443
+
+ENTRYPOINT ["/app/entrypoint_server.sh"]

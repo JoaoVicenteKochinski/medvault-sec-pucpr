@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  medvault-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: medvault-server
+    hostname: medvault-server
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    ports:
+      - "8443:8443"
+    volumes:
+      - ./logs:/var/log/medvault
+      - ./vault_storage:/app/vault_storage
+      - ./pcap:/app/pcap
+    networks:
+      rede_medvault:
+        ipv4_address: 172.28.0.10
+    restart: unless-stopped
+
+  medvault-client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: medvault-client
+    hostname: medvault-client
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    depends_on:
+      - medvault-server
+    volumes:
+      - ./pcap:/app/pcap
+    networks:
+      rede_medvault:
+        ipv4_address: 172.28.0.20
+    tty: true
+    stdin_open: true
+
+networks:
+  rede_medvault:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24
