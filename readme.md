@@ -4,10 +4,10 @@ Projeto Final da disciplina **PSE102A - Segurança da Informação** (Bacharelad
 **Professor:** Prof. MSc. Luis Gonzaga de Paulo (`luis.gonzaga@pucpr.br`)
 
 ## Integrantes da Equipe
-- **João Vicente Kochinski** (Matrícula: [INSERIR_MATRICULA])
-- **Pedro Matta** (Matrícula: [INSERIR_MATRICULA])
-- **Dominic Skiba** (Matrícula: [INSERIR_MATRICULA])
-- **Leonardo Barbosa** (Matrícula: [INSERIR_MATRICULA])
+- **João Vicente Kochinski** (Matrícula: [40120617])
+- **Pedro Matta** (Matrícula: [40108421])
+- **Dominic Skiba** (Matrícula: [40118102])
+- **Leonardo Barbosa** (Matrícula: [40091374])
 
 ## Arquitetura e Alinhamento com os Resultados de Aprendizagem (RAs)
 - **RA1 (Autenticação e Controle de Acesso):** Autenticação Multifator (Senha com derivação `PBKDF2-HMAC-SHA256` de 100.000 iterações + `TOTP` RFC 6238 via `pyotp`) e Controle de Acesso Baseado em Papéis (`RBAC` estrito entre os papéis `MEDICO` e `RECEPCAO`, aplicando o Princípio do Menor Privilégio).
