@@ -24,3 +24,36 @@ Projeto Final da disciplina **PSE102A - Segurança da Informação** (Bacharelad
 ### 1. Subir os contêineres
 ```bash
 docker compose up -d --build
+```
+
+### 2. Executar os Casos de Teste (T01, T02 e T03)
+**Caso de Teste T02 (Fluxo Legítimo: Upload e Leitura com TLS + AES-256-GCM + HMAC-SHA256):**
+```bash
+docker exec -it medvault-client python client.py --teste t02
+```
+
+**Caso de Teste T01 (Bloqueio de Controle de Acesso RBAC com Usuário de Recepção):**
+```bash
+docker exec -it medvault-client python client.py --teste t01
+```
+
+**Caso de Teste T03 (Simulação de Ataque de Força Bruta e Bloqueio Automático via IPS/iptables):**
+```bash
+docker exec -it medvault-client python client.py --teste t03
+```
+
+### 3. Inspecionar Evidências no Servidor
+**Ver laudo cifrado em repouso (AES-256-GCM):**
+```bash
+docker exec -it medvault-server cat /app/vault_storage/LAUDO_CARDIO_2026_001.json
+```
+
+**Ver logs de auditoria e alertas do IPS:**
+```bash
+docker exec -it medvault-server cat /var/log/medvault/security.log
+```
+
+**Ver regras ativas de bloqueio no Firewall (iptables):**
+```bash
+docker exec -it medvault-server iptables -L INPUT -n -v
+```
